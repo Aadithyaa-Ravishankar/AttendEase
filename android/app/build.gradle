@@ -1,0 +1,55 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace "com.example.copypaste1"  // Ensure this matches your app package
+    compileSdk 35  // Match Flutter plugin requirements
+
+    ndkVersion "25.1.8937393" // Ensure compatibility
+
+    defaultConfig {
+        applicationId "com.example.copypaste1"  // Ensure this matches namespace
+        minSdk 21
+        targetSdk 35  // Ensure it matches compileSdk
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig null  // Removed invalid reference
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    lint {
+        checkReleaseBuilds false
+        warning 'deprecation'
+    }
+}
+
+flutter {
+    source "../.."
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.22"
+    implementation "androidx.core:core-ktx:1.12.0"
+
+    // Flutter Dependencies
+    implementation "io.flutter:flutter_embedding_debug:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87"
+}
+
