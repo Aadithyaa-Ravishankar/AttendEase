@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "attendance",
+			"path": "../../attendance"
+		},
+		{
+			"name": "lib",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
